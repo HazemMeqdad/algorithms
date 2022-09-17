@@ -79,3 +79,23 @@ class Dijkstra:
             return []
         
         return self.build_path(self.vertex_labels[vertex]['prev']) + [vertex]
+    
+    
+    
+def shortest_path(g:dict,start_node,end_node):
+
+        dijkstra = Dijkstra(g, start_vertex=start_node)
+
+         # Run the algorithm
+        dijkstra.dijkstra()
+
+         
+        price = dijkstra.vertex_labels[end_node]["distance"]
+        path = ""
+        for vertex in dijkstra.vertices:
+             if vertex == end_node:
+                 path = dijkstra.build_path(vertex)
+             else:
+                 pass
+
+        return price,path
